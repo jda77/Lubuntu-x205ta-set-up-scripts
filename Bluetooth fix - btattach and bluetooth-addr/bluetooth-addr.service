@@ -1,0 +1,11 @@
+[Unit]
+Description=Set Bluetooth device address
+After=bluetooth.service
+Requires=bluetooth.service
+
+[Service]
+ExecStart=/usr/bin/btmgmt -i hci0 public-addr {YOUR_BLUETOOTH_MAC_ADDRESS}
+Restart=on-failure
+
+[Install]
+WantedBy=bluetooth.target
